@@ -1,5 +1,7 @@
 # fleo
 
+- Make an .env file and copy .example.env.txt to it.
+
 - Geetings from developer (GET - /)
 
 - To ADD a new category (POST - /api/category/addCategory) <br>
