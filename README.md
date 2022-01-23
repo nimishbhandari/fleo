@@ -25,3 +25,9 @@
   "currentSales":2000000,<br>
   "totalTarget":3000000<br>
   }
+
+- To DELETE a category by name (DELETE - /api/category/delete) <br>
+  JSON Format required <br>
+  { <br>
+  "name":"factory123325"<br>
+  }
