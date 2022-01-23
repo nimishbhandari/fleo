@@ -122,4 +122,17 @@ const updateCategory = asyncHandler(async (req, res) => {
   }
 });
 
-export { addCategory, findcategory, updateCategory };
+//@desc     Delete a category by name
+//@routes   Delete /api/category/delete
+//@access   PUBLIC
+const deleteCategory = asyncHandler(async (req, res) => {
+  const { name } = req.body;
+
+  const category = await Category.findOneAndDelete({ name });
+
+  if (category) {
+    res.status(201).json({ message: "Success" });
+  }
+});
+
+export { addCategory, findcategory, updateCategory, deleteCategory };
