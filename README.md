@@ -15,3 +15,11 @@
   { <br>
   "name":"factory123325"<br>
   }
+
+- To update a category by name (PUT - /api/category/edit) <br>
+  JSON Format required <br>
+  { <br>
+  "name":"factory123325",<br>
+  "currentSales":2000000,<br>
+  "totalTarget":3000000<br>
+  }

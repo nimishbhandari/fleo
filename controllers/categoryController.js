@@ -78,4 +78,48 @@ const findcategory = asyncHandler(async (req, res) => {
   }
 });
 
-export { addCategory, findcategory };
+//@desc     Update a category by name
+//@routes   PUT /api/category/edit
+//@access   PUBLIC
+const updateCategory = asyncHandler(async (req, res) => {
+  const { name, currentSales, totalTarget } = req.body;
+
+  const category = await Category.findOne({ name });
+
+  if (category) {
+    category.currentSales = currentSales || category.currentSales;
+    category.totalTarget = totalTarget || category.totalTarget;
+
+    let progress = Number(((currentSales / totalTarget) * 100).toFixed(2));
+    let color;
+    let label;
+
+    if (progress <= 33) {
+      category.color = "red";
+      category.label = "At Risk";
+    } else if (progress > 33 && progress <= 66) {
+      category.color = "yellow";
+      category.label = "off track";
+    } else {
+      category.color = "green";
+      category.label = "on track";
+    }
+
+    const updatecategory = await category.save();
+
+    res.json({
+      _id: updatecategory._id,
+      name: updatecategory.name,
+      currentSales: updatecategory.currentSales,
+      totalTarget: updatecategory.totalTarget,
+      progress: updatecategory.progress,
+      color: updatecategory.color,
+      label: updatecategory.label,
+    });
+  } else {
+    res.status(401);
+    throw new Error("category Not found");
+  }
+});
+
+export { addCategory, findcategory, updateCategory };
