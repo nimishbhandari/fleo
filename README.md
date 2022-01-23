@@ -1,9 +1,9 @@
 # fleo
 
-- To add a new category (api/category/addCategory)
-  JSON Format required
-  {
-  "name":"factory4",
-  "currentSales":100000,
-  "totalTarget":123121212
+- To add a new category (api/category/addCategory) <br>
+  JSON Format required <br>
+  { <br>
+  "name":"factory123325",<br>
+  "currentSales":100000,<br>
+  "totalTarget":123121212<br>
   }
