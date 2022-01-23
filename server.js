@@ -11,7 +11,9 @@ connectDB();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Greetings From Nimish Bhandari &hearts;");
+  res.send(
+    `Greetings From <a href="https://bit.ly/resume-nimish"> Nimish Bhandari </a> &hearts;`
+  );
 });
 
 app.use("/api/category", categoryRoutes);
