@@ -14,6 +14,15 @@ const categorySchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    progress: {
+      type: Number,
+    },
+    color: {
+      type: String,
+    },
+    label: {
+      type: String,
+    },
   },
   {
     timestamps: true,
