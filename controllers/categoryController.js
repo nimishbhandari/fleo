@@ -5,8 +5,9 @@ import asyncHandler from "express-async-handler";
 //@routes   POST /api/category
 //@access   PUBLIC
 const addCategory = asyncHandler(async (req, res) => {
-  const { categoryName } = req.body;
-  const categoryExist = await Category.findOne({ categoryName });
+  const { name, currentSales, totalTarget } = req.body;
+
+  const categoryExist = await Category.findOne({ name });
 
   if (categoryExist) {
     res.status(400);
@@ -14,13 +15,17 @@ const addCategory = asyncHandler(async (req, res) => {
   }
 
   const category = await Category.create({
-    categoryName,
+    name,
+    currentSales,
+    totalTarget,
   });
 
   if (category) {
     res.status(201).json({
       _id: category._id,
-      categoryName: category.categoryName,
+      name: category.name,
+      currentSales: category.currentSales,
+      totalTarget: category.totalTarget,
     });
   } else {
     res.status(400);
