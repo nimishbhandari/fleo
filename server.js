@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send(
-    `Greetings From <a href="https://bit.ly/resume-nimish"> Nimish Bhandari </a> &hearts;`
+    `Greetings From <a href="https://bit.ly/bnimish"> Nimish Bhandari </a> &hearts;`
   );
 });
 
